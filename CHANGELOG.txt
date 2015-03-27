@@ -1,0 +1,82 @@
+v0.5.8
+	- Properly closing lame pipes and reading all encoded data, as to not send broken mpeg data
+	- Created a transcoder in scripts/ for relaying stream to dialup or whatever
+
+v0.5.7
+        - Changed buffer code in scBroadcast.php thanks to Cynagen @ irc.irchighway.net
+        - Changed scanfiles.php to use GetID3 (getid3.sf.net) (extract under "scripts" dir)
+        - Old scanfiles.php now scanfiles_old.php if you don't want GetID3
+
+v0.5.6
+	- Added libshout/phpShout support. Works better than my scBroadcast for now. ^.^
+	- Added VBR option for phpShout users.
+	- Added Live365 support
+	- Added FLAC support (SQL table modification required as result, since
+	  filetype was previously only varchar(3)
+
+v0.5.5
+	- Fixed buffer in scBroadcast class. Now should not under/overrun with various bitrates
+	  Changed tag detection a bit in scanfiles.php, now requires "mp3info" and "wmainfo.py"
+
+v0.5.4
+	- Tweaked classes for compatiblity with latest SVN release of mplayer
+
+v0.5.3
+	- Removed $contype from config and autodetect it based on encoder settings.
+
+v0.5.2
+	- Lamest bug in the world fixed. See classes/icecastBroadcaster.php
+	- More tweaking of the buffer system to find an optimal setting x.x;
+
+v0.5.1
+	- Fixed some configuration issues
+
+v0.5
+	- Added Icecast support
+	- Added OGG Vorbis Encoding
+	- Optimized powerbuffer
+	- Fixed more MP3 buffer issues
+	- Added executable checks to verify needed programs are installed.
+	  (This should help if scanfiles was dying if you don't have FAAD2 or vorbis-tools)
+
+v0.4.3
+	- Fixed buffer issue where bitrates other than 64kbps would under or overrun.
+	- Added MP4/AAC support into scanfiles.php (sorry, that file is still a mess) :/
+	- Other small stuff that I can't remember, so it can't be too important.
+
+v0.4.2
+	- Argh, more buffer overruns in scBroadcast :( Hopefully fixed this time.
+
+v0.4.1
+        - Added 'filters' field to config table, you can use any MPlayer audio filters here. For more info, see
+          `mplayer -af help` or the MPlayer man page.
+	- Added script 'verifyFiles.php', for database maintainance (removes psychically deleted files)
+	- Updated 'scanfiles.php' to require an absolute path, since only bad things could happen from using a relative path 
+
+v0.4
+	- Added Request system
+	- Moved some configs to MySQL for changing without restarting
+	- Fixed playlist rotation bug in Logic Reactor
+
+v0.3
+	- Unreleased
+	- Added queue system
+	- Updated MySQL table structures
+	- Added "length" field for songlist
+
+v0.2
+	- Added Logic Reactor
+	- Moved broadcasting functions into scBroadcast class
+	- Added MySQL Songlist
+	- Removed nasty /tmp/dj.wav dependancy, now pipes via PHP and proc_open()
+	- Changed references from /home/media/bin/mplayer to mplayer
+
+v0.1.1a 
+	- Cleaned up some of the code
+	- Created class folder attemping to prepare for addon classes
+	- Created class for Shoutcast Broadcasting Login, scBroadcast v1.0
+	- Created configuration file and folder
+
+v0.1a
+	- Initial Release
+
